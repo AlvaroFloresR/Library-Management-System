@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+<!-- prettier-ignore -->
+{% block title-block %}
+<title>Logout</title>
+{% endblock title-block %}
+
+<!-- prettier-ignore -->
+{% block body-block %}
+<div class="container">
+  <h1>You have been logged out!</h1>
+  <a href="{% url 'login' %}">Click here to login</a>
+</div>
+{% endblock body-block %}

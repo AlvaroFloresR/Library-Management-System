@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!-- prettier-ignore -->
+{% block title-block %}
+<title>Login</title>
+{% endblock title-block %}
+
+<!-- prettier-ignore -->
+{% block body-block %}
+<div class="container">
+  <h1>Login Form</h1>
+
+  <!-- prettier-ignore -->
+  {% if form.errors %}
+  <p>Your username or password is incorrect. Try Again!</p>
+  {% endif %}
+
+  <!-- prettier-ignore -->
+  {% if next %}
+    {% if user.is_authenticated %}
+  <p>You don't have permission for this page</p>
+  {% else %}
+  <p>Please login to see this page</p>
+  {% endif %} {% endif %}
+  <form method="POST" action='{% url 'login' %}'>
+    {% csrf_token %}
+    <!-- prettier-ignore -->
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="LOGIN" />
+    <input class="btn btn-primary" name='next' type="HIDDEN" value="{{next}}" />
+
+  </form>
+</div>
+{% endblock body-block %}

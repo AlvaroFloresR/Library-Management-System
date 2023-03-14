@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+<!-- prettier-ignore -->
+{% block title-block %}
+<title>New User</title>
+{% endblock title-block %}
+
+<!-- prettier-ignore -->
+{% block body-block %}
+<div class="container">
+  <h1>Registration Form</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <!-- prettier-ignore -->
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="Signup" />
+  </form>
+</div>
+{% endblock body-block %}

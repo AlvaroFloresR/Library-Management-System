@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+<!-- prettier-ignore -->
+{% block title-block %}
+<title>Borrowed Books</title>
+{% endblock title-block %}
+
+<!-- prettier-ignore -->
+{% block body-block %}
+<h1>Welcome <strong>{{user.get_username}}</strong> to your profile</h1>
+<div class="container">
+  <h2>Borrowed Books</h2>
+  <div>
+    <ul>
+      <!-- prettier-ignore -->
+      {% for book in bookinstance_list %}
+      <li>{{book}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock body-block %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<!-- prettier-ignore -->
+{% block title-block %}
+<title>Index</title>
+{% endblock title-block %}
+
+<!-- prettier-ignore -->
+{% block body-block %}
+<div class="container">
+  <h1>Library Summary</h1>
+  <!-- prettier-ignore -->
+  {% if user.is_authenticated %}
+  <p>Welcome <strong>{{user.get_username}}</strong>, you are logged in 😀</p>
+  <a class="btn btn-danger" href="{% url 'logout' %}?next={{request.path}}"
+    >Click to logout</a
+  >
+
+  {% else %}
+  <p>Hey stranger! You are not logged in 😔</p>
+  <a class="btn btn-success" href="{% url 'login' %}?next={{request.path}}"
+    >Click to Login</a
+  >
+  {% endif %}
+  <div>
+    <ul>
+      <li>Num Books: {{num_books}}</li>
+      <li>Num of Instances: {{num_instances}}</li>
+      <li>Num of Instances Available: {{num_instances_available}}</li>
+    </ul>
+  </div>
+</div>
+{% endblock body-block %}
